@@ -5,6 +5,12 @@ This project is built using React, TypeScript, Material UI
 
 In the project directory, you can run:
 
+
+To initialize:
+### `npm install`
+
+
+To Run:
 ### `npm start`
 
 Runs the app
