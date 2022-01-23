@@ -6,7 +6,6 @@ const useStyle = makeStyles((theme) => ({
     width: "80%",
     margin: "0 auto",
   },
-  logo: {},
 }));
 
 const LayoutWrapper: React.FC = (props) => {
