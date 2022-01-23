@@ -1,6 +1,5 @@
 import { makeStyles, CssBaseline } from "@material-ui/core";
 import Image from "../images/bg.jpg";
-import NavBar from "./NavBar";
 import Header from "./Header";
 import Stats from "./Stats";
 
@@ -24,7 +23,6 @@ export const Home = () => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <NavBar />
       <Header />
       <Stats />
     </div>
