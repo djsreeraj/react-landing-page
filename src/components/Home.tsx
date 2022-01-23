@@ -1,3 +1,4 @@
+import React from "react";
 import { makeStyles, CssBaseline } from "@material-ui/core";
 import Image from "../images/bg.jpg";
 import Header from "./Header";

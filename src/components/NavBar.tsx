@@ -1,5 +1,6 @@
+import React from "react";
 import { makeStyles, alpha } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Typography, CssBaseline } from "@material-ui/core";
+import { AppBar, Toolbar, CssBaseline } from "@material-ui/core";
 import Logo from "../images/logo.png";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import SearchIcon from "@material-ui/icons/Search";
