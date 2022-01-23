@@ -1,17 +1,19 @@
 import { makeStyles, alpha } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography, CssBaseline } from "@material-ui/core";
 import Logo from "../images/logo.png";
-import LocalMallIcon from "@material-ui/icons/LocalMall";
+import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 
 const useStyle = makeStyles((theme) => ({
   appbar: {
     background: "none",
+    "& .MuiToolbar-gutters": {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
   },
   appbarWrapper: {
-    width: "80%",
-    margin: "0 auto",
     display: "flex",
     justifyContent: "space-between",
   },
@@ -98,7 +100,7 @@ const NavBar = () => {
             <div className={classes.link}>Help</div>
             <div className={classes.link}>Account</div>
             <div className={classes.link}>
-              <LocalMallIcon />
+              <LocalMallOutlinedIcon />
             </div>
           </div>
         </Toolbar>

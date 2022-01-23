@@ -5,9 +5,11 @@ import Stats from "./Stats";
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    minHeight: "100vh",
-    height: "862px",
-    backgroundSize: "cover",
+    display: "flex",
+    flexDirection: "column",
+    // minHeight: "100vh",
+    // height: "862px",
+    backgroundColor: "background-color: rgb(10, 11, 26)",
     backgroundImage: `linear-gradient(
       180deg,
       rgba(5, 11, 20, 0.28) 0%,
@@ -15,6 +17,8 @@ const useStyle = makeStyles((theme) => ({
       #0a0b1a 85.33%
     ),
     url(${Image})`,
+    backgroundSize: "100% auto",
+    backgroundRepeat: "no-repeat",
   },
 }));
 
