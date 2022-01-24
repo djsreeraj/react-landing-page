@@ -7,6 +7,7 @@ import LayoutWrapper from "../LayoutWrapper";
 const useStyle = makeStyles((theme) => ({
   headerWrapper: {
     display: "flex",
+    justifyContent: "space-between",
   },
   title: {
     marginTop: "246px",
@@ -42,7 +43,7 @@ const Header = () => {
   const classes = useStyle();
 
   return (
-    <Container disableGutters className={classes.headerWrapper}>
+    <div className={classes.headerWrapper}>
       <LayoutWrapper>
         <NavBar />
         <Typography variant="h1" className={classes.title}>
@@ -53,7 +54,7 @@ const Header = () => {
           and never miss out.
         </Typography>
       </LayoutWrapper>
-    </Container>
+    </div>
   );
 };
 
