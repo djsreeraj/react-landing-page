@@ -1,13 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import NavBar from "./NavBar";
 import LayoutWrapper from "../LayoutWrapper";
 
 const useStyle = makeStyles((theme) => ({
   headerWrapper: {
     display: "flex",
-    justifyContent: "space-between",
   },
   title: {
     marginTop: "246px",

@@ -9,7 +9,6 @@ import { ReviewCard } from "./ReviewCard";
 const useStyle = makeStyles((theme) => ({
   listWrapper: {
     display: "flex",
-    margin: "0",
     justifyContent: "space-between",
     paddingBottom: "100px",
     [theme.breakpoints.down("sm")]: {
