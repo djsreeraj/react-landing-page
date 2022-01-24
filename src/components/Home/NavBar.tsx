@@ -1,10 +1,30 @@
 import React from "react";
 import { makeStyles, alpha } from "@material-ui/core/styles";
-import { AppBar, Toolbar, CssBaseline } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  CssBaseline,
+  Container,
+  Hidden,
+} from "@material-ui/core";
 import Logo from "../../images/logo.png";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Divider from "@material-ui/core/Divider";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Link from "@material-ui/core/Link";
+import { useState } from "react";
+
+const navigationLinks = [
+  { name: "Help", href: "#" },
+  { name: "Account", href: "#" },
+];
 
 const useStyle = makeStyles((theme) => ({
   appbar: {
@@ -33,6 +53,15 @@ const useStyle = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
+  linkStyle: {
+    marginRight: 20,
+  },
+  iconMob: {
+    color: "#fff",
+    marginLeft: theme.spacing(1),
+    display: "flex",
+    alignItems: "center",
+  },
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -57,6 +86,9 @@ const useStyle = makeStyles((theme) => ({
     justifyContent: "center",
     transform: "scale(0.7)",
   },
+  iconWhite: {
+    color: "#fff",
+  },
   inputRoot: {
     color: "inherit",
   },
@@ -77,34 +109,85 @@ const useStyle = makeStyles((theme) => ({
 
 const NavBar = () => {
   const classes = useStyle();
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <CssBaseline />
       <AppBar position="static" className={classes.appbar} elevation={0}>
-        <Toolbar className={classes.appbarWrapper}>
-          <img src={Logo} alt="logo" className={classes.logo} />
+        <Container disableGutters>
+          <Toolbar className={classes.appbarWrapper}>
+            <img src={Logo} alt="logo" className={classes.logo} />
+            <div className={classes.navlinks}>
+              <Hidden xsDown>
+                <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                    <SearchIcon />
+                  </div>
+                  <InputBase
+                    placeholder="Search…"
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                    inputProps={{ "aria-label": "search" }}
+                  />
+                </div>
+                <div className={classes.link}>Help</div>
+                <div className={classes.link}>Account</div>
+                <div className={classes.link}>
+                  <LocalMallOutlinedIcon />
+                </div>
+              </Hidden>
 
-          <div className={classes.navlinks}>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ "aria-label": "search" }}
-              />
+              <Hidden smUp>
+                <div className={classes.iconMob}>
+                  <SearchIcon />
+                </div>
+                <div className={classes.iconMob}>
+                  <LocalMallOutlinedIcon />
+                </div>
+                <div className={classes.iconMob}>
+                  <IconButton onClick={() => setOpen(true)}>
+                    <MenuIcon className={classes.iconWhite} />
+                  </IconButton>
+                </div>
+              </Hidden>
             </div>
-            <div className={classes.link}>Help</div>
-            <div className={classes.link}>Account</div>
-            <div className={classes.link}>
-              <LocalMallOutlinedIcon />
-            </div>
+          </Toolbar>
+        </Container>
+        <SwipeableDrawer
+          anchor="right"
+          open={open}
+          onOpen={() => setOpen(true)}
+          onClose={() => setOpen(false)}
+        >
+          <div
+            onClick={() => setOpen(false)}
+            onKeyPress={() => setOpen(false)}
+            role="button"
+            tabIndex={0}
+          >
+            <IconButton>
+              <ChevronRightIcon />
+            </IconButton>
           </div>
-        </Toolbar>
+          <Divider />
+          <List>
+            {navigationLinks.map((item) => (
+              <ListItem key={item.name}>
+                <Link
+                  className={classes.linkStyle}
+                  color="textPrimary"
+                  variant="button"
+                  underline="none"
+                  href={item.href}
+                >
+                  {item.name}
+                </Link>
+              </ListItem>
+            ))}
+          </List>
+        </SwipeableDrawer>
       </AppBar>
     </div>
   );

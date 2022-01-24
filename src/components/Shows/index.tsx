@@ -10,7 +10,10 @@ const useStyle = makeStyles((theme) => ({
   listWrapper: {
     display: "flex",
     flexDirection: "row",
-    // flexWrap: "wrap",
+    [theme.breakpoints.down("sm")]: {
+      flexWrap: "nowrap",
+      overflowX: "auto",
+    },
   },
   actionButton: {
     color: "#E5C558",
@@ -41,7 +44,7 @@ const Shows = () => {
   return (
     <LayoutWrapper>
       <ComponentHeader title="Upcoming Shows" rightAction={action} />
-      <Container className={classes.listWrapper}>
+      <Container disableGutters className={classes.listWrapper}>
         {showData.map((item: any) => {
           return (
             <ShowCard

@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
@@ -19,6 +19,11 @@ const useStyle = makeStyles((theme) => ({
     borderRadius: "8px",
     boxShadow: "8px -8px #0277bd",
     padding: "20px 5px",
+    [theme.breakpoints.down("sm")]: {
+      minWidth: "270px",
+      marginRight: "25px",
+      padding: "6px 5px",
+    },
   },
   cardHeader: {
     color: "#fff",

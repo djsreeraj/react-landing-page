@@ -12,6 +12,10 @@ const useStyle = makeStyles((theme) => ({
     margin: "0",
     justifyContent: "space-between",
     paddingBottom: "100px",
+    [theme.breakpoints.down("sm")]: {
+      flexWrap: "nowrap",
+      overflowX: "auto",
+    },
   },
   actionButton: {
     color: "#fff",
@@ -39,7 +43,7 @@ const Reviews = () => {
   return (
     <LayoutWrapper>
       <ComponentHeader title="Reviews" rightAction={action} />
-      <Container className={classes.listWrapper}>
+      <Container disableGutters className={classes.listWrapper}>
         {reviewsData.map((item: any) => {
           return (
             <ReviewCard

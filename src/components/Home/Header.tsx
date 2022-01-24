@@ -1,11 +1,13 @@
 import React from "react";
-import { makeStyles } from "@material-ui/styles";
-import { Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Container, Typography } from "@material-ui/core";
 import NavBar from "./NavBar";
 import LayoutWrapper from "../LayoutWrapper";
 
 const useStyle = makeStyles((theme) => ({
-  headerWrapper: {},
+  headerWrapper: {
+    display: "flex",
+  },
   title: {
     marginTop: "246px",
     fontFamily: "Libre Baskerville",
@@ -14,6 +16,10 @@ const useStyle = makeStyles((theme) => ({
     fontSize: "80px",
     lineHeight: "96px",
     color: "#FFFFFF",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "40px",
+      lineHeight: "56px",
+    },
   },
   subTitle: {
     fontFamily: "Nunito",
@@ -24,6 +30,11 @@ const useStyle = makeStyles((theme) => ({
     color: "#FFFFFF",
     width: "614px",
     opacity: "0.6",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "16px",
+      lineHeight: "26px",
+      width: "300px",
+    },
   },
 }));
 
@@ -31,7 +42,7 @@ const Header = () => {
   const classes = useStyle();
 
   return (
-    <div className={classes.headerWrapper}>
+    <Container disableGutters className={classes.headerWrapper}>
       <LayoutWrapper>
         <NavBar />
         <Typography variant="h1" className={classes.title}>
@@ -42,7 +53,7 @@ const Header = () => {
           and never miss out.
         </Typography>
       </LayoutWrapper>
-    </div>
+    </Container>
   );
 };
 

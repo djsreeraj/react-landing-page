@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -13,7 +13,7 @@ import ConfirmationNumberOutlinedIcon from "@material-ui/icons/ConfirmationNumbe
 import ArrowForwardOutlinedIcon from "@material-ui/icons/ArrowForwardOutlined";
 import { useState } from "react";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 400,
     marginTop: "40px",
@@ -25,6 +25,10 @@ const useStyles = makeStyles({
     marginRight: "35px",
     backgroundColor: "#111229",
     cursor: "pointer",
+    [theme.breakpoints.down("sm")]: {
+      minWidth: "230px",
+      marginRight: "25px",
+    },
   },
   media: {
     height: 220,
@@ -93,7 +97,7 @@ const useStyles = makeStyles({
       paddingLeft: "25px",
     },
   },
-});
+}));
 
 interface IProps {
   title: string;

@@ -8,8 +8,6 @@ const useStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    // minHeight: "100vh",
-    // height: "862px",
     backgroundColor: "background-color: rgb(10, 11, 26)",
     backgroundImage: `linear-gradient(
       180deg,
@@ -20,6 +18,10 @@ const useStyle = makeStyles((theme) => ({
     url(${Image})`,
     backgroundSize: "100% auto",
     backgroundRepeat: "no-repeat",
+    [theme.breakpoints.down("sm")]: {
+      backgroundSize: "310% auto",
+      backgroundPosition: "-450px 0px",
+    },
   },
 }));
 

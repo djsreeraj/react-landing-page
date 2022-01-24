@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/styles";
+import { Container, makeStyles } from "@material-ui/core";
 import { SvgIconProps } from "@material-ui/core/SvgIcon";
 import { useState } from "react";
 
@@ -18,6 +18,15 @@ const useStyle = makeStyles((theme) => ({
       border: "1px solid #DD4CAC",
     },
     margin: "40px",
+    [theme.breakpoints.down("sm")]: {
+      marginRight: "15px",
+      minHeight: "150px",
+      minWidth: "150px",
+      height: "140px",
+      margin: "0",
+      padding: "0",
+      lineHeight: "1.3rem",
+    },
   },
   icon: {
     transform: "scale(1.4)",
@@ -32,9 +41,15 @@ const useStyle = makeStyles((theme) => ({
     fontSize: "24px",
     fontFamily: "LibreBaskerville",
     color: "#fff",
+    [theme.breakpoints.down("sm")]: {
+      margin: "2px",
+    },
   },
   liked: {
     color: "blue",
+  },
+  likedCircle: {
+    border: "1px solid #DD4CAC",
   },
   labelTxt: {
     margin: "0",
@@ -70,7 +85,10 @@ const StatCountCircle: React.FC<{
     }
   };
   return (
-    <div className={classes.wrapper}>
+    <Container
+      disableGutters
+      className={`${classes.wrapper} ${props.isLike && classes.likedCircle}`}
+    >
       <p
         className={`${classes.icon} ${!isNewUser && classes.liked}`}
         onClick={onLikeClick}
@@ -81,7 +99,7 @@ const StatCountCircle: React.FC<{
       <p className={classes.countTxt}> {props.isLike ? likes : props.count} </p>
 
       <p className={classes.labelTxt}>{props.label}</p>
-    </div>
+    </Container>
   );
 };
 

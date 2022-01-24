@@ -6,7 +6,7 @@ const useStyle = makeStyles((theme) => ({
   wrapper: {
     display: "flex",
     justifyContent: "space-between",
-    marginTop: "60px",
+    marginTop: "70px",
   },
   titleSection: {
     display: "flex",
