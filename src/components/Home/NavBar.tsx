@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, alpha } from "@material-ui/core/styles";
 import { AppBar, Toolbar, CssBaseline } from "@material-ui/core";
-import Logo from "../images/logo.png";
+import Logo from "../../images/logo.png";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";

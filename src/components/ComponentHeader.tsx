@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
-import LayoutWrapper from "./LayoutWrapper";
 
 const useStyle = makeStyles((theme) => ({
   wrapper: {
@@ -38,17 +37,15 @@ export const ComponentHeader: React.FC<IProps> = (props) => {
   const classes = useStyle();
 
   return (
-    <LayoutWrapper>
-      <div className={classes.wrapper}>
-        <div className={classes.titleSection}>
-          <Typography variant="h2" className={classes.title}>
-            {props.title}
-          </Typography>
-          <span className={classes.titleAddon}></span>
-        </div>
-
-        <div> {props.rightAction}</div>
+    <div className={classes.wrapper}>
+      <div className={classes.titleSection}>
+        <Typography variant="h2" className={classes.title}>
+          {props.title}
+        </Typography>
+        <span className={classes.titleAddon}></span>
       </div>
-    </LayoutWrapper>
+
+      <div> {props.rightAction}</div>
+    </div>
   );
 };

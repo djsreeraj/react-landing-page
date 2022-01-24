@@ -5,7 +5,7 @@ import EventIcon from "@material-ui/icons/Event";
 import GroupIcon from "@material-ui/icons/Group";
 import LiveTvIcon from "@material-ui/icons/LiveTv";
 import { makeStyles } from "@material-ui/styles";
-import LayoutWrapper from "./LayoutWrapper";
+import LayoutWrapper from "../LayoutWrapper";
 
 const useStyle = makeStyles((theme) => ({
   wrapper: {

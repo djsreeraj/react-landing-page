@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { ComponentHeader } from "./ComponentHeader";
+import { ComponentHeader } from "../ComponentHeader";
+import LayoutWrapper from "../LayoutWrapper";
 
 const useStyle = makeStyles((theme) => ({
   wrapper: {
@@ -30,9 +31,11 @@ const Reviews = () => {
     console.log("Reviews scroll all....");
   }
   return (
-    <div className={classes.wrapper}>
-      <ComponentHeader title="Reviews" rightAction={action} />
-    </div>
+    <LayoutWrapper>
+      <div className={classes.wrapper}>
+        <ComponentHeader title="Reviews" rightAction={action} />
+      </div>
+    </LayoutWrapper>
   );
 };
 

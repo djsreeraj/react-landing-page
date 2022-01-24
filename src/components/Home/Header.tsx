@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Typography } from "@material-ui/core";
 import NavBar from "./NavBar";
-import LayoutWrapper from "./LayoutWrapper";
+import LayoutWrapper from "../LayoutWrapper";
 
 const useStyle = makeStyles((theme) => ({
   headerWrapper: {},
