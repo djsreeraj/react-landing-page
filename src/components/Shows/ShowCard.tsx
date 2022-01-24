@@ -55,6 +55,7 @@ const useStyles = makeStyles({
     fontSize: "16px",
   },
   tickets: {
+    paddingTop: "5px",
     paddingLeft: "15px",
     borderLeft: "1px solid rgba(255,255,255,0.2)",
     color: "#8e24aa",

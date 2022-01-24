@@ -1,33 +1,78 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
 const useStyle = makeStyles((theme) => ({
-  wrapper: {
+  card: {
+    width: "350px",
     display: "flex",
-    justifyContent: "space-between",
-    marginTop: "80px",
+    flexDirection: "column",
+    columnGap: "10px",
+    background: "#0a0b1a",
+    color: "#fff",
+    justifyContent: "space-around",
+    marginTop: "50px",
+    border: "2px solid gold",
+    borderRadius: "8px",
+    boxShadow: "8px -8px #0277bd",
+    padding: "20px 5px",
   },
-
-  // title: {
-  //   color: "#fff",
-  //   fontFamily: "LibreBaskerville",
-  //   fontWeight: 400,
-  //   fontSize: "32px",
-  //   lineHeight: "40px",
-  // },
-  // titleAddon: {
-  //   marginTop: "5px",
-  //   width: "40px",
-  //   border: "1.5px solid #0259eb",
-  //   backgroundColor: "#0259eb",
-  // },
-  // rightAction: {},
+  cardHeader: {
+    color: "#fff",
+  },
+  cardTitle: {
+    color: "#fff",
+  },
+  cardSubTitle: {
+    color: "#E5C558",
+  },
+  cardContent: {
+    color: "#fff",
+  },
+  userIcon: {},
 }));
-export const ReviewCard = () => {
+
+interface IProps {
+  user: string;
+  img: string;
+  location: string;
+  reviewTxt: string;
+}
+
+export const ReviewCard: React.FC<IProps> = (props) => {
   const classes = useStyle();
 
   return (
-    <div>
-      Card <p></p>
-    </div>
+    <Card className={classes.card}>
+      <CardHeader
+        avatar={
+          <Avatar
+            aria-label="user"
+            className={classes.userIcon}
+            src={require(`../../images/thumbnails/${props.img}`)}
+          ></Avatar>
+        }
+        classes={{
+          title: classes.cardTitle,
+          subheader: classes.cardSubTitle,
+        }}
+        title={props.user}
+        subheader={props.location}
+        className={classes.cardHeader}
+      />
+      <CardContent>
+        <Typography
+          className={classes.cardContent}
+          variant="body2"
+          color="textSecondary"
+          component="p"
+        >
+          {props.reviewTxt}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };

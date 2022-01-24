@@ -1,10 +1,16 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
 import { ComponentHeader } from "../ComponentHeader";
 import LayoutWrapper from "../LayoutWrapper";
+import { reviewsData } from "../../data";
+import { ReviewCard } from "./ReviewCard";
 
 const useStyle = makeStyles((theme) => ({
-  wrapper: {
+  listWrapper: {
+    display: "flex",
+    margin: "0",
+    justifyContent: "space-between",
     paddingBottom: "100px",
   },
   actionButton: {
@@ -32,9 +38,19 @@ const Reviews = () => {
   }
   return (
     <LayoutWrapper>
-      <div className={classes.wrapper}>
-        <ComponentHeader title="Reviews" rightAction={action} />
-      </div>
+      <ComponentHeader title="Reviews" rightAction={action} />
+      <Container className={classes.listWrapper}>
+        {reviewsData.map((item: any) => {
+          return (
+            <ReviewCard
+              user={item.user}
+              img={item.img}
+              location={item.location}
+              reviewTxt={item.reviewTxt}
+            />
+          );
+        })}
+      </Container>
     </LayoutWrapper>
   );
 };
