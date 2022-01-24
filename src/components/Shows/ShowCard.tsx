@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
 import ConfirmationNumberOutlinedIcon from "@material-ui/icons/ConfirmationNumberOutlined";
-import TrendingFlatOutlinedIcon from "@material-ui/icons/TrendingFlatOutlined";
+// import TrendingFlatOutlinedIcon from "@material-ui/icons/TrendingFlatOutlined";
 import ArrowForwardOutlinedIcon from "@material-ui/icons/ArrowForwardOutlined";
 import { useState } from "react";
 
@@ -65,15 +65,21 @@ const useStyles = makeStyles({
     // background: "linear-gradient(to bottom, #8e24aa 0%, #ab47bc 100%)",
     // backgroundClip: "text",
   },
-  iconActive: {
-    display: "hidden",
-  },
-  iconInactive: {
-    display: "block",
-  },
+  // iconActive: {
+  //   display: "hidden",
+  // },
+  // iconInactive: {
+  //   display: "block",
+  // },
   actionsBar: {
     display: "flex",
     justifyContent: "space-between",
+  },
+  moreTxt: {
+    transition: "0.3s",
+    "&:hover, &:focus": {
+      marginRight: "20px",
+    },
   },
   moreArrow: {
     display: "flex",
@@ -128,7 +134,7 @@ export const ShowCard: React.FC<IProps> = (props) => {
 
       <CardActions className={classes.actionsBar}>
         <Button size="small" className={classes.cardAction}>
-          <span> More info </span>
+          <span className={classes.moreTxt}> More info </span>
           <span className={classes.moreArrow}>
             <ArrowForwardOutlinedIcon />
           </span>
